@@ -1,8 +1,10 @@
 # Create your views here.
 
 from django.http import HttpResponse
-from qs.functions import store
+from qs.functions import store, getObject
 from qs.models import Person, Answer
+
+from django.template import loader,Context
 
 def index(request):
     return HttpResponse("Hello,World!")
@@ -15,10 +17,7 @@ def sendqs(request):
     return HttpResponse("hehe")
 
 def showall(request):
-    for e in Answer.objects.all():
-        print(e)
+    t = loader.get_template('show.html')
+    c = Context(getObject())
 
-    for p in Person.objects.all():
-        print(p)
-
-    return HttpResponse("hehe")
+    return HttpResponse(t.render(c))

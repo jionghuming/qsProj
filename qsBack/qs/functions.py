@@ -1,4 +1,5 @@
 from qs.models import Person, Answer
+from django.forms.models import model_to_dict
 
 def storePerson(name="", mobile="", qq="", address="", imei=""):
     try:
@@ -47,3 +48,21 @@ def store(params):
         storePerson(**params)
     else:
         storeAnswer(params)
+
+def getObject():
+    answers = {}
+    persons = {}
+
+    for e in Answer.objects.all():
+        answers[e.imei] = model_to_dict(e)
+        persons[e.imei] = getPerson(e.imei)
+
+    result = {"answers":answers,"persons":persons}
+    return result
+
+def getPerson(imei):
+    try:
+        p = Person.objects.get(imei_id=imei)
+        return p.getDic()
+    except Person.DoesNotExist:
+        return {}

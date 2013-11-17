@@ -1,0 +1,77 @@
+{% load staticfiles %}
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link  rel="stylesheet" type="text/css" href="{% static 'qback.css' %}" />
+</head>
+
+<body>
+<div id='div_all'>
+
+<div id='topic'>
+<h3 align='center'>用户调查问卷结果</h3>
+</div>
+
+<div class='result'>
+<h3 align="center">Answer</h3>
+<table class="answer">
+<tr>
+    <th>IMEI</th>
+    <th>性别</th>
+    <th>年龄</th>
+    <th>居住地</th>
+    <th>教育程度</th>
+    <th>职业</th>
+    <th>月收入</th>
+    <th>手机使用时间</th>
+    <th>每天上网时间</th>
+    <th>每天上网时段</th>
+    <th>上网用途</th>
+</tr>
+{% if answers %}
+{% for i,a in answers.items %}
+<tr>
+    <td>{{ i }}</td>
+    <td>{{ a.sex }}</td>
+    <td>{{ a.age }}</td>
+    <td>{{ a.address }}</td>
+    <td>{{ a.edu }} </td>
+    <td>{{ a.position}}</td>
+    <td>{{ a.payment }}</td>
+    <td>{{ a.useMobileTime }}</td>
+    <td>{{ a.webTime }}</td>
+    <td>{{ a.webMoment }}</td>
+    <td>{{ a.webUsage }}</td>
+</tr>
+{% endfor %}
+{% endif %}
+
+</table>
+<br />
+<h3 align="center">Person</h3>
+<table class="person">
+<tr>
+    <th>IMEI</th>
+    <th>姓名</th>
+    <th>手机</th>
+    <th>qq</th>
+    <th>地址</th>
+</tr>
+{% if persons %}
+{% for i, v in persons.items %}
+<tr>
+    <td>{{ i }}</td>
+    <td>{{ v.name }}</td>
+    <td>{{ v.mobile }}</td>
+    <td>{{ v.qq }}</td>
+    <td>{{ v.address }}</td>
+</tr>
+{% endfor %}
+{% endif %}
+</table>
+</div> <!-- result -->
+
+</div>
+</body>
+</html>

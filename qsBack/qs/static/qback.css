@@ -1,0 +1,42 @@
+body {
+    font-size: 1em;
+    font-family: '宋体',ncursive,Arial, Verdana, Geneva,sans-serif;
+    margin: 0;
+}
+
+div#div_all{
+    width: 90%;
+    margin: 2.4%;
+    padding: 2.4%;
+    border:  solid #007aff;
+}
+
+table {
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.answer th,.answer td {
+    height: 2em;
+    width: 4em;
+}
+.person th, .person td {
+    height 2em;
+    width: 9em;
+}
+
+div#topic{
+    font-size: 1em;
+}
+
+div#pre{
+    font-size: 1em;
+}
+h3 {
+    margin-left: auto;
+    margin-right: auto;
+}

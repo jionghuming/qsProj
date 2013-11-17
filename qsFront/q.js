@@ -166,7 +166,6 @@ function createDict(results)
     var imei = getIMEI();
     dic += "," + mark + "imei" + mark + ':' + mark + imei + mark;
     dic += '}';
-    alert(dic);
     return dic;
 }
 
@@ -194,7 +193,6 @@ function getIMEI()
             }
         }
     }
-    alert("imei :"+imei);
     return imei;
 }
 

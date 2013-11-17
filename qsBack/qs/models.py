@@ -26,6 +26,14 @@ class Person(models.Model):
     address = models.CharField(max_length=200)
     imei = models.ForeignKey(Answer)
 
+    def getDic(self):
+        p = {}
+        p['name'] = self.name
+        p['mobile'] = self.mobile
+        p['qq'] = self.qq
+        p['address'] = self.address
+        return p
+
     def __unicode__(self):
         return "person: imei=>[%s],name=>%s,mobile=>%s,qq=>%s,address=>%s" \
                % (self.imei,self.name,self.mobile,self.qq,self.address)

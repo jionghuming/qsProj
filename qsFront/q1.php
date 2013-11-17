@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_REQUEST["imei"]))
+{
+    $imei = $_REQUEST["imei"];
+    $_SESSION["ime"]=$imei;
+}
+?>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,8 +28,11 @@
 </div>
 
 <div id='part1'>
-<form action="q2" method="POST" name='form1' onsubmit="return check_form('form1')">
+<?php
 
+echo "<form action=\"q2?imei=$imei\" method='POST' name='form1' onsubmit=\"return check_form('form1')\">";
+
+?>
 <div class='question'>
 <div class='ques_title'>
 1. 您的性别？
