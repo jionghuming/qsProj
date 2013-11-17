@@ -1,0 +1,41 @@
+body {
+    font-size: 1em;
+    font-family: '宋体',ncursive,Arial, Verdana, Geneva,sans-serif;
+    margin: 0;
+}
+
+div#div_all{
+    width: 90%;
+    margin: 2.4%;
+    padding: 2.4%;
+    border:  solid #007aff;
+}
+
+div#topic{
+    font-size: 1em;
+}
+div#pre{
+    font-size: 1em;
+}
+div#last{
+    font-size: 1em;
+}
+div.question {
+    margin: 15px 0;
+    border-bottom: solid #EFEFEF;
+}
+
+div.ques_title {
+    color: #007aff;
+}
+
+div.ques_option {
+    padding: 0.8em 1.5em;
+}
+div.button {
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
+input {
+}
