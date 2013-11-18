@@ -7,14 +7,17 @@
 </head>
 <body>
 
-<div id='div_all'>
+<div id='thanks'>
 
 <div id='topic'>
-<h3 align='center'>用户调查问卷</h3>
+<h3 >感谢您参与问卷调查</h3>
 </div>
 
 <div id='pre'>
-非常感谢您的参与，期待您好运中奖，再见！
+我们会从提交问卷用户中随机抽取<br />
+<font class='bold'>幸运用户</font> 将会得到我们送出的 <font class='bold'>大奖</font> <br />
+<br />
+请点击返回键退出  <br />
 </div>
 
 </div>

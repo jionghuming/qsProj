@@ -193,8 +193,6 @@ function getIMEI()
             var pair = pairs[p].split("=");
             if(pair[0].toLowerCase() == "imei")
                 results['imei'] = pair[1];
-            else if(pair[0].toLowerCase() == "page")
-                results['page'] = pair[1];
         }
     }
     return results;
