@@ -10,17 +10,15 @@ def newPerson(dicts):
     qq = dicts.get('qq', default)
     email  = dicts.get('email', default)
 
+    a = Answer.objects.get(imei=imei)
     try:
-        a = Answer.objects.get(imei=imei)
+        p = Person.objects.get(imei = a)
+        updatePerson(dicts, p)
+    except Person.DoesNotExist:
         p = Person(name=name,mobile=mobile,qq=qq,email=email)
         p.imei = a
         p.save()
-    except Answer.DoesNotExist:
-        newAnswer(imei=imei)
-        p = Person(name=name,mobile=mobile,qq=qq,email=email)
-        a = Answer.objects.get(imei=imei)
-        p.imei = a
-        p.save()
+
 
 def newAnswer(imei="", sex="", age="", address="", edu="", position="",
               payment="",useMobileTime="",webTime="",webMoment="",webUsage=""):
@@ -29,21 +27,41 @@ def newAnswer(imei="", sex="", age="", address="", edu="", position="",
                 position=position,payment=payment)
     a.save()
 
+def udpatePerson(dicts, person):
+    try:
+        person.name = dicts.get("name", person.name)
+        person.mobile = dicts.get("mobile", person.mobile)
+        person.qq = dicts.get("qq", person.qq)
+        person.email = dicts.get("email", person.email)
+        person.save()
+    except:
+        print "update person error."
+
 def updateAnswer(dicts, answer):
     try:
-        answer.useMobileTime = dicts.get("useMobileTime")
-        answer.webTime = dicts.get("webTime")
-        answer.webMoment = dicts.get("webMoment")
-        answer.webUsage = dicts.get("webUsage")
+        answer.sex = dicts.get("sex", answer.sex)
+        answer.sex = dicts.get("age", answer.age)
+        answer.address = dicts.get("address", answer.address)
+        answer.edu = dicts.get("edu",answer.edu)
+        answer.position = dicts.get("position",answer.position)
+        answer.payment = dicts.get("payment", answer.payment)
+
+        answer.useMobileTime = dicts.get("useMobileTime", answer.useMobileTime)
+        answer.webTime = dicts.get("webTime", answer.webTime)
+        answer.webMoment = dicts.get("webMoment", answer.webMoment)
+        answer.webUsage = dicts.get("webUsage", answer.webUsage )
         answer.save()
     except:
-        print "update error"
+        print "update answer error."
 
 def update(imei, dicts):
     try:
         a = Answer.objects.get(imei=imei)
-        updateAnswer(dicts,a)
-        newPerson(dicts)
+        if checkForm(dicts) == 2:
+            updateAnswer(dicts, a)
+            newPerson(dicts)
+        else:
+            updateAnswer(dicts, a)
     except Answer.DoesNotExist:
         newAnswer(**dicts)
 
