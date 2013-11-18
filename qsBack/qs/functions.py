@@ -1,15 +1,23 @@
 from qs.models import Person, Answer
 from django.forms.models import model_to_dict
 
-def storePerson(name="", mobile="", qq="", address="", imei=""):
+def newPerson(dicts):
+
+    default = ''
+    imei = dicts.get('imei',default)
+    name = dicts.get('name', default)
+    mobile = dicts.get('mobile', default)
+    qq = dicts.get('qq', default)
+    email  = dicts.get('email', default)
+
     try:
         a = Answer.objects.get(imei=imei)
-        p = Person(name=name,mobile=mobile,qq=qq,address=address)
+        p = Person(name=name,mobile=mobile,qq=qq,email=email)
         p.imei = a
         p.save()
     except Answer.DoesNotExist:
         newAnswer(imei=imei)
-        p = Person(name=name,mobile=mobile,qq=qq,address=address)
+        p = Person(name=name,mobile=mobile,qq=qq,email=email)
         a = Answer.objects.get(imei=imei)
         p.imei = a
         p.save()
@@ -31,23 +39,48 @@ def updateAnswer(dicts, answer):
     except:
         print "update error"
 
-def storeAnswer(dicts):
+def update(imei, dicts):
+    try:
+        a = Answer.objects.get(imei=imei)
+        updateAnswer(dicts,a)
+        newPerson(dicts)
+    except Answer.DoesNotExist:
+        newAnswer(**dicts)
+
+def store(dicts):
+
     try:
         imei = dicts['imei']
-        try:
-            a = Answer.objects.get(imei=imei)
-            updateAnswer(dicts, a)
-        except Answer.DoesNotExist:
+        flag = isAnswered(imei)
+        if flag == 2:
+            print "you have answered this questionnaire."
+        elif flag == 1:
+            update(imei, dicts)
+        else:
             newAnswer(**dicts)
     except KeyError:
         print "This dict donot have a imei value."
+
+# check which form is posted
+# 1 => form1
+# 2 => form2
+def checkForm(dicts):
+    if dicts.get('sex') != None:
+        return 1
+    return 2
         
-# handle params by different method
-def store(params):
-    if(params.get('qq') != None):
-        storePerson(**params)
-    else:
-        storeAnswer(params)
+# check if the user have answered this questionnaire
+# 0 => donot answered
+# 1 => have answered q1
+# 2 => have answered all
+def isAnswered(imei):
+    try:
+        a = Answer.objects.get(imei=imei)
+        if a.webTime != '' and a.sex != '':
+            return 2
+        return 1
+    except Answer.DoesNotExist:
+        return 0
 
 def getObject():
     answers = {}

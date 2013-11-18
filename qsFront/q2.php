@@ -22,14 +22,8 @@ if(isset($_SESSION["imei"]))
 <h3 align='center'>用户调查问卷</h3>
 </div>
 
-<div id='pre'>
-<p>
-欢迎参与2013年移动智能手机用户调查，这将占用您一分钟左右的时间，只要您完整填写并留下联系地址，就有机会获得我们赠送的礼品。请您如实填写问卷，您的答案对我们非常重要！感谢您对我们活动的大力支持！ 
-</p>
-</div>
-
 <div id='part2'>
-<form action="#contact" method='POST' name='form2' onsubmit="return check_form('form2')">
+<form action="thanks" method='POST' name='form2' onsubmit="return check_form('form2')">
 
 <div class='question'>
 <div class='ques_title'>
@@ -117,50 +111,41 @@ if(isset($_SESSION["imei"]))
 <input type='checkbox' name='webUsage' value='13' />其他
 <br />
 </div>
-</div>
+</div> <!-- question -->
 
-<div class='button'>
-<input type='submit' value='提交' />
-</div>
-</form>
 </div><!-- Part2  -->
 
 <div id='last'>
 <p>
-<a name="contact">
 感谢您百忙之中填写问卷，请您留下联系方式，调查结束后，我们会随机抽取用户并寄送礼品，敬请留意。
-</a>
 </p>
 </div>
 
 <div id='part3'>
 
-<form action="thanks" method='POST' name="contact_form" onsubmit="return checkContact('contact_form')">
 <table>
 <tr>
-<th>姓名: </th>
+<th>怎么称呼您: </th>
 <td><input type='text' name='name' size='30'/></td>
 </tr>
 <tr>
-<th>手机: </th>
+<th>您的手机号是: </th>
 <td><input type='text' name='mobile' size='30'/></td>
 </tr>
 <tr>
-<th>QQ号: </th>
+<th>QQ号是多少: </th>
 <td><input type='text' name='qq' size='30'/></td>
 </tr>
 <tr>
-<th>地址: </th>
-<td><input type='text' name='address' size='30'/></td>
+<th>留个邮箱地址呗: </th>
+<td><input type='text' name='email' size='30'/></td>
 </tr>
-
-<tr>
-<td><input type='submit' value='提交'  /></td>
-<td><input type='reset' value='重写' /></td>
-</tr>
-
 </table>
-</form>
+
+<div class='button'>
+<input type='submit' value='提交'  />
+</div>
+
 </div>  <!-- Part3 -->
 
 

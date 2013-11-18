@@ -1,3 +1,5 @@
+var host = '192.168.50.40';
+
 function check_form(name)
 {
     var results = new Array();
@@ -20,7 +22,6 @@ function check_form(name)
             if(!results[ele.name])
             {
                 results[ele.name] = str;
-                //print_arr(results);
             }
             continue;
         }
@@ -49,6 +50,16 @@ function check_form(name)
                 results[ele.name] = str;
                 continue;
             }
+        }
+        else if(ele.type == 'text')
+        {
+            if(ele.value == '' && (ele.name != 'mobile' && ele.name != 'qq'))
+            {
+                alert("请认真填写您的联系方式，我们会通过您留下的联系方式联系您");
+                ele.focus();
+                return false;
+            }
+            results[ele.name] = ele.value;
         }
     }
     pushData(results)
@@ -172,7 +183,7 @@ function createDict(results)
 function getIMEI()
 {
     var url = window.location.href;
-    var imei = '';
+    var results = new Array();
     if(url.indexOf("?") != -1)
     {
         var parameter = url.split("?");
@@ -181,19 +192,12 @@ function getIMEI()
         {
             var pair = pairs[p].split("=");
             if(pair[0].toLowerCase() == "imei")
-            {
-                var end = pair[1].indexOf("#contact");
-                if(end >= 0)
-                {
-                    imei = pair[1].substring(0, end);
-                }
-                else
-                    imei = pair[1];
-                break;
-            }
+                results['imei'] = pair[1];
+            else if(pair[0].toLowerCase() == "page")
+                results['page'] = pair[1];
         }
     }
-    return imei;
+    return results;
 }
 
 // http post
@@ -201,7 +205,7 @@ var xhr;
 function pushData(results)
 {
     var dic = createDict(results);
-    var url = 'http://10.109.242.65:8000/qs/sendqs/';
+    var url = 'http://' + host + ':8000/qs/sendqs/';
     xhr = new XMLHttpRequest();
 /*
     xhr.onreadystatechange = callBack()

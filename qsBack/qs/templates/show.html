@@ -56,7 +56,7 @@
     <th>姓名</th>
     <th>手机</th>
     <th>qq</th>
-    <th>地址</th>
+    <th>邮箱</th>
 </tr>
 {% if persons %}
 {% for i, v in persons.items %}
@@ -65,7 +65,7 @@
     <td>{{ v.name }}</td>
     <td>{{ v.mobile }}</td>
     <td>{{ v.qq }}</td>
-    <td>{{ v.address }}</td>
+    <td>{{ v.email }}</td>
 </tr>
 {% endfor %}
 {% endif %}

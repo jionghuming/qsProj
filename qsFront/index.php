@@ -1,5 +1,5 @@
 <?php
-    $host="10.109.242.65";
+    $host = $_SERVER['SERVER_ADDR'];
 
     $imei = substr(md5(time()), 0, 8);
     $answer_url = "http://$host/qs/q1?imei=$imei";

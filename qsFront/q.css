@@ -32,10 +32,12 @@ div.ques_title {
 div.ques_option {
     padding: 0.8em 1.5em;
 }
-div.button {
+.button input {
+    margin-left: 46%;
+    margin-right: 46%;
+}
+div.img {
     margin-left: auto;
     margin-right: auto;
-    width: 20%;
-}
-input {
+    max-width: 100%;
 }

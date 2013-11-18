@@ -23,7 +23,7 @@ class Person(models.Model):
     name = models.CharField(max_length=50)
     mobile = models.CharField(max_length=20)
     qq = models.CharField(max_length=50)
-    address = models.CharField(max_length=200)
+    email = models.CharField(max_length=200)
     imei = models.ForeignKey(Answer)
 
     def getDic(self):
@@ -31,9 +31,9 @@ class Person(models.Model):
         p['name'] = self.name
         p['mobile'] = self.mobile
         p['qq'] = self.qq
-        p['address'] = self.address
+        p['email'] = self.email
         return p
 
     def __unicode__(self):
-        return "person: imei=>[%s],name=>%s,mobile=>%s,qq=>%s,address=>%s" \
-               % (self.imei,self.name,self.mobile,self.qq,self.address)
+        return "person: imei=>[%s],name=>%s,mobile=>%s,qq=>%s,email=>%s" \
+               % (self.imei,self.name,self.mobile,self.qq,self.email)
