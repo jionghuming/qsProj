@@ -35,7 +35,7 @@ echo "<form action=\"q2?imei=$imei\" method='POST' name='form1' onsubmit=\"retur
 ?>
 <div class='question'>
 <div class='ques_title'>
-1. 您的性别？
+1. 您的性别？<span style="color:red;"> *</span>
 </div>
 <div class='ques_option'>
 <input type='radio' name='sex' value='1'/>男
@@ -46,7 +46,7 @@ echo "<form action=\"q2?imei=$imei\" method='POST' name='form1' onsubmit=\"retur
 
 <div class='question'>
 <div class='ques_title'>
-2. 您的年龄?
+2. 您的年龄？<span style="color:red;"> *</span>
 </div>
 <div class='ques_option'>
 <input type='radio' name='age' value='1'/>10岁及以下
@@ -70,7 +70,7 @@ echo "<form action=\"q2?imei=$imei\" method='POST' name='form1' onsubmit=\"retur
 
 <div class='question'>
 <div class='ques_title'>
-3. 您最近6个月以来固定居住地点的行政划分是？
+3. 您最近6个月以来固定居住地点的行政划分是？<span style="color:red;"> *</span>
 </div>
 <div class='ques_option'>
 <input type='radio' name='address' value='1'/>北京、上海等直辖市、港澳台
@@ -90,7 +90,7 @@ echo "<form action=\"q2?imei=$imei\" method='POST' name='form1' onsubmit=\"retur
 
 <div class='question'>
 <div class='ques_title'>
-4. 您的教育程度？
+4. 您的教育程度？<span style="color:red;"> *</span>
 </div>
 <div class='ques_option'>
 <input type='radio' name='edu' value='1'/>小学及以下
@@ -110,7 +110,7 @@ echo "<form action=\"q2?imei=$imei\" method='POST' name='form1' onsubmit=\"retur
 
 <div class='question'>
 <div class='ques_title'>
-5. 您的职业？
+5. 您的职业？<span style="color:red;"> *</span>
 </div>
 <div class='ques_option'>
 <input type='radio' name='position' value='1'/>学生
@@ -132,7 +132,7 @@ echo "<form action=\"q2?imei=$imei\" method='POST' name='form1' onsubmit=\"retur
 
 <div class='question'>
 <div class='ques_title'>
-6. 您个人的实际月收入？
+6. 您个人的实际月收入？<span style="color:red;"> *</span>
 </div>
 <div class='ques_option'>
 <input type='radio' name='payment' value='1' />没有收入

@@ -27,7 +27,7 @@ if(isset($_SESSION["imei"]))
 
 <div class='question'>
 <div class='ques_title'>
-7. 您开始使用智能手机到现在有多长时间?
+7. 您开始使用智能手机到现在有多长时间？<span style="color:red;"> *</span>
 </div>
 <div class='ques_option'>
 <input type='radio' name='useMobileTime' value='1' />不到一年
@@ -45,7 +45,7 @@ if(isset($_SESSION["imei"]))
 
 <div class='question'>
 <div class='ques_title'>
-8. 您平均每天使用手机上网多长时间?
+8. 您平均每天使用手机上网多长时间？<span style="color:red;"> *</span>
 </div>
 <div class='ques_option'>
 <input type='radio' name='webTime' value='1' />1小时以下
@@ -61,7 +61,7 @@ if(isset($_SESSION["imei"]))
 
 <div class='question'>
 <div class='ques_title'>
-9. 您平时用手机上网的时段是?（可多选）
+9. 您平时用手机上网的时段是？<span style="color:red;"> *</span>（可多选）
 </div>
 <div class='ques_option'>
 <input type='checkbox' name='webMoment' value='1' />早晨
@@ -81,7 +81,7 @@ if(isset($_SESSION["imei"]))
 
 <div class='question'>
 <div class='ques_title'>
-10. 您平时手机上网主要做的事情是？（请选择最经常做的三项）
+10. 您平时手机上网主要做的事情是？<span style="color:red;"> *</span>（请选择最经常做的三项）
 </div>
 <div class='ques_option'>
 <input type='checkbox' name='webUsage' value='1' />浏览国内外社会新闻
@@ -117,7 +117,7 @@ if(isset($_SESSION["imei"]))
 
 <div id='last'>
 <p>
-感谢您百忙之中填写问卷，请您留下联系方式，调查结束后，我们会随机抽取用户并寄送礼品，敬请留意。
+感谢您百忙之中填写问卷，请您留下联系方式，调查结束后，我们会随机抽取用户并寄送礼品，敬请留意。<span style="color:red;"> *</span>
 </p>
 </div>
 
@@ -125,20 +125,20 @@ if(isset($_SESSION["imei"]))
 
 <table>
 <tr>
-<th>怎么称呼您: </th>
-<td><input type='text' name='name' size='30'/></td>
+<th align='right'>怎么称呼您: </th>
+<td><input type='text' name='name'/></td>
 </tr>
 <tr>
-<th>您的手机号是: </th>
-<td><input type='text' name='mobile' size='30'/></td>
+<th align='right'>您的手机号是: </th>
+<td><input type='text' name='mobile'/></td>
 </tr>
 <tr>
-<th>QQ号是多少: </th>
-<td><input type='text' name='qq' size='30'/></td>
+<th align='right'>QQ号是多少: </th>
+<td><input type='text' name='qq'/></td>
 </tr>
 <tr>
-<th>留个邮箱地址呗: </th>
-<td><input type='text' name='email' size='30'/></td>
+<th align='right'>留个邮箱地址呗: </th>
+<td><input type='text' name='email'/></td>
 </tr>
 </table>
 

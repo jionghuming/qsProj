@@ -1,7 +1,40 @@
 var host = '192.168.50.40';
 
+function checkExist(parentEle)
+{
+    if(parentEle.children.length)
+    {
+        var children = parentEle.children;
+        for(var i=0;i<children.length;i++)
+        {
+            if(children[i].className == 'need_check')
+                return children[i];
+        }
+        return false; 
+    }
+}
+
+function removeElement(parentEle)
+{
+    var rmEle = checkExist(parentEle);
+    if(rmEle)
+        parentEle.removeChild(rmEle);
+}
+
+function addElement(parentEle, alertmsg)
+{
+    if(checkExist(parentEle))
+        return;
+    var childEle = document.createElement("div");
+    var childContent = document.createTextNode(alertmsg);
+    childEle.className = "need_check";
+    childEle.appendChild(childContent);
+    parentEle.appendChild(childEle);
+}
+
 function check_form(name)
 {
+    var msg1 = "这题是必答题喔！";
     var results = new Array();
     var forms = document.getElementsByName(name);
     var elements = forms[0];
@@ -15,17 +48,17 @@ function check_form(name)
             str = checke_radio(ele);
             if(str == '')
             {
-                alert('你还有没答完的题喔');
+                addElement(ele.parentNode, msg1);
                 ele.focus();
                 return false;
             }
-            if(!results[ele.name])
-            {
-                results[ele.name] = str;
-            }
+            else
+                removeElement(ele.parentNode);
+
+            results[ele.name] = str;
             continue;
         }
-        else if(ele.type == 'checkbox')
+        if(ele.type == 'checkbox')
         {
             if(ele.name == 'webUsage')
             {
@@ -35,30 +68,36 @@ function check_form(name)
                     ele.focus();
                     return false;
                 }
+                else
+                    removeElement(ele.parentNode);
                 results[ele.name] = str;
                 continue;
             } 
             else
             {
                 str = check_box(ele);
-                if(str == false)
+                if(str == '')
                 {
-                    alert('你还有没答完的题喔');
+                    addElement(ele.parentNode, msg1);
                     ele.focus();
                     return false;
                 }
+                else
+                    removeElement(ele.parentNode);
                 results[ele.name] = str;
                 continue;
             }
         }
-        else if(ele.type == 'text')
+        if(ele.type == 'text')
         {
             if(ele.value == '' && (ele.name != 'mobile' && ele.name != 'qq'))
             {
-                alert("请认真填写您的联系方式，我们会通过您留下的联系方式联系您");
+                addElement(part3,"请认真填写您的联系方式，我们会通过您留下的联系方式联系您！");
                 ele.focus();
                 return false;
             }
+            else
+                removeElement(ele.parentNode);
             results[ele.name] = ele.value;
         }
     }
@@ -146,12 +185,12 @@ function check_box_three(ele)
     }
     if(count>3)
     {
-        alert("第10题只能选择3个喔，亲!");
+        addElement(ele[0].parentNode, "第10题只能选择3个喔，亲!");
         return '';
     }
     if(count <3)
     {
-        alert("别那么小气么，第10题需要选择3个喔!");
+        addElement(ele[0].parentNode, "别那么小气么，第10题需要选择3个喔!");
         return '';
     }
     return str;

@@ -15,7 +15,7 @@
 <body>
 
 <h2 align="center"> This is a questionnaire example </h2>
-<h4>1. Send this url to the user</h4>
+<h4>1. Send this url to the user(each user with refreshing this page to get a new iemi)</h4>
 <?php
     echo "$answer_url <br />";
     echo "<h4>2. User opens this url</h4>";

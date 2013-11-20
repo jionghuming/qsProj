@@ -32,9 +32,9 @@ div.ques_title {
 div.ques_option {
     padding: 0.8em 1.5em;
 }
-.button input {
-    margin-left: 46%;
-    margin-right: 46%;
+div.need_check {
+    color: red;
+    margin-top: 1em;
 }
 div.img {
     margin-left: auto;
