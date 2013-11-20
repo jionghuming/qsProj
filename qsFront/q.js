@@ -92,7 +92,7 @@ function check_form(name)
         {
             if(ele.value == '' && (ele.name != 'mobile' && ele.name != 'qq'))
             {
-                addElement(part3,"请认真填写您的联系方式，我们会通过您留下的联系方式联系您！");
+                addElement(ele.parentNode,"请认真填写您的联系方式，我们会通过您留下的联系方式联系您！");
                 ele.focus();
                 return false;
             }
@@ -103,30 +103,6 @@ function check_form(name)
     }
     pushData(results)
     return true;
-}
-
-function checkContact(name)
-{
-    var forms = document.getElementsByName(name);
-    var elements = forms[0];
-
-    var results= new Array();
-    for(var i=0;i<elements.length;i++)
-    {
-        var ele = elements[i];
-        if(ele.type == 'text')
-        {
-            if(ele.value == '')
-            {
-                alert("最后一步，请认真填写您的联系方式，我们会通过您留下的联系方式寄送礼品");
-                ele.focus();
-                return false;
-            }
-            results[ele.name] = ele.value;
-        }
-    }
-    pushData(results);
-    return true;  
 }
 
 function print_arr(arr)

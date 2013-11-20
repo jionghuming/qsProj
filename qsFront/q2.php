@@ -1,12 +1,3 @@
-<?php
-session_start();
-
-if(isset($_SESSION["imei"]))
-{
-    echo $_SESSION["imei"];
-}
-?>
-
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -117,37 +108,26 @@ if(isset($_SESSION["imei"]))
 
 <div id='last'>
 <p>
-感谢您百忙之中填写问卷，请您留下联系方式，调查结束后，我们会随机抽取用户并寄送礼品，敬请留意。<span style="color:red;"> *</span>
+感谢您百忙之中填写问卷，请您留下联系方式，调查结束后，我们会随机抽取用户并寄送礼品，敬请留意。
 </p>
 </div>
 
 <div id='part3'>
 
-<table>
-<tr>
-<th align='right'>怎么称呼您: </th>
-<td><input type='text' name='name'/></td>
-</tr>
-<tr>
-<th align='right'>您的手机号是: </th>
-<td><input type='text' name='mobile'/></td>
-</tr>
-<tr>
-<th align='right'>QQ号是多少: </th>
-<td><input type='text' name='qq'/></td>
-</tr>
-<tr>
-<th align='right'>留个邮箱地址呗: </th>
-<td><input type='text' name='email'/></td>
-</tr>
-</table>
+姓名<span style="color:red;"> *</span>:<br />
+<input type='text' name='name'/><br />
+手机号码:<br />
+<input type='text' name='mobile'/><br />
+QQ:<br />
+<input type='text' name='qq'/><br />
+邮箱<span style="color:red;"> *</span>:<br />
+<input type='text' name='email'/></tr><br />
 
 <div class='button'>
 <input type='submit' value='提交'  />
 </div>
 
 </div>  <!-- Part3 -->
-
 
 </div>
 
