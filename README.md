@@ -1,10 +1,14 @@
 qsProj
 ======
 
-A web questionnaire.
+Questionnaire on the web.
 
-This project contains 2 parts: qsFront, qsBack. And as the names implies the qsFront support for the questionaire, and qsBack is responsible of the data saving.  
+This project contains 2 parts: qsFront and qsBack.
 
-qsFront use php(just same to html),css,javascript to show the question, and use javascript(q.js) to push data to the qsBack, which is a django project.
+As the name implies that the qsFront is support for the questionaire, and the qsBack is responsible for the data saving.
 
-qsBack is a django project and it use sqlite3(which is included in django) to save data. This database just has 2 tables: person and the answer.
+The qsFront uses php(just like to html), css, javascript to show questions, and use javascript(q.js) to push data to the qsBack, which is a django project.
+
+The qsBack uses sqlite3(which is included in django) to save data.
+
+This database just has 2 tables: person and the answer.
